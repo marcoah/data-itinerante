@@ -1,0 +1,13 @@
+{
+  "name": "data-itinerante-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "check": "node --check src/worker.js"
+  },
+  "devDependencies": {
+    "wrangler": "^3.111.0"
+  }
+}

@@ -1,0 +1,7 @@
+[
+  { "name": "Buenos Aires", "icon": "📊", "lat": -34.6037, "lng": -58.3816, "events": 6, "participants": 342 },
+  { "name": "Córdoba", "icon": "📈", "lat": -31.4201, "lng": -64.1888, "events": 3, "participants": 185 },
+  { "name": "Rosario", "icon": "📉", "lat": -32.9453, "lng": -60.6299, "events": 2, "participants": 126 },
+  { "name": "Mendoza", "icon": "💹", "lat": -32.8895, "lng": -68.8458, "events": 2, "participants": 98 },
+  { "name": "Bariloche", "icon": "🎯", "lat": -41.1345, "lng": -71.3105, "events": 1, "participants": 45 }
+]

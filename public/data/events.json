@@ -1,0 +1,35 @@
+[
+  {
+    "key": "sql",
+    "city": "Buenos Aires",
+    "title": "SQL Avanzado con PostgreSQL",
+    "date": "15 Octubre 2026",
+    "durationHours": 4,
+    "level": "Avanzado",
+    "participants": 142,
+    "description": "Domina las técnicas más avanzadas de SQL en PostgreSQL. Aprenderemos window functions, CTEs, recursive queries y optimización de performance.",
+    "fullDescription": "Domina las técnicas más avanzadas de SQL en PostgreSQL. Aprenderemos sobre window functions, Common Table Expressions (CTEs), recursive queries, análisis de ejecución de queries y optimización de performance. Incluye casos reales de data engineering. Ideal para profesionales que buscan especializarse y llevar sus habilidades SQL al siguiente nivel."
+  },
+  {
+    "key": "tableau",
+    "city": "Buenos Aires",
+    "title": "Dashboard con Tableau",
+    "date": "22 Octubre 2026",
+    "durationHours": 3.5,
+    "level": "Intermedio",
+    "participants": 98,
+    "description": "Crea dashboards profesionales e impactantes con Tableau. Desde conexión de datos hasta visualizaciones complejas e interactivas.",
+    "fullDescription": "Crea dashboards profesionales e impactantes con Tableau. Cubriremos desde conexión de fuentes de datos, diseño de visualizaciones efectivas, hasta dashboards complejos e interactivos. Aprenderemos best practices en business intelligence y casos de uso reales de empresas que utilizan Tableau en producción."
+  },
+  {
+    "key": "analytics",
+    "city": "Córdoba",
+    "title": "Analytics Fundamentals",
+    "date": "18 Octubre 2026",
+    "durationHours": 3,
+    "level": "Principiante",
+    "participants": 67,
+    "description": "Introducción a data analytics. Herramientas, metodologías, métricas clave y casos de uso reales en el mundo empresarial.",
+    "fullDescription": "Introducción integral a data analytics. Conocerás las herramientas más utilizadas en la industria, metodologías probadas, definición y cálculo de métricas clave, y exploraremos casos de uso reales de empresas. Base sólida para iniciar tu carrera en el mundo de los datos y la inteligencia de negocios."
+  }
+]

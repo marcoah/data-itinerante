@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "sources": ["../src/worker.js"],
+  "sourceRoot": ".wrangler-dist",
+  "sourcesContent": ["export default {\r\n  async fetch(request, env) {\r\n    const url = new URL(request.url);\r\n\r\n    if (url.pathname.startsWith(\"/api/\")) {\r\n      return Response.json({\r\n        ok: true,\r\n        app: \"data-itinerante\",\r\n        message: \"API mock disponible en el Worker de Cloudflare\",\r\n        path: url.pathname,\r\n      });\r\n    }\r\n\r\n    const assetResponse = await env.ASSETS.fetch(request);\r\n    if (assetResponse.status !== 404) {\r\n      return assetResponse;\r\n    }\r\n\r\n    const fallbackUrl = new URL(\"/\", request.url);\r\n    const fallbackResponse = await env.ASSETS.fetch(\r\n      new Request(fallbackUrl, request),\r\n    );\r\n\r\n    return new Response(fallbackResponse.body, {\r\n      status: 200,\r\n      headers: {\r\n        \"Content-Type\": \"text/html; charset=utf-8\",\r\n        \"Cache-Control\": \"no-store\",\r\n      },\r\n    });\r\n  },\r\n};\r\n"],
+  "mappings": ";AAAA,IAAO,iBAAQ;AAAA,EACb,MAAM,MAAM,SAAS,KAAK;AACxB,UAAM,MAAM,IAAI,IAAI,QAAQ,GAAG;AAE/B,QAAI,IAAI,SAAS,WAAW,OAAO,GAAG;AACpC,aAAO,SAAS,KAAK;AAAA,QACnB,IAAI;AAAA,QACJ,KAAK;AAAA,QACL,SAAS;AAAA,QACT,MAAM,IAAI;AAAA,MACZ,CAAC;AAAA,IACH;AAEA,UAAM,gBAAgB,MAAM,IAAI,OAAO,MAAM,OAAO;AACpD,QAAI,cAAc,WAAW,KAAK;AAChC,aAAO;AAAA,IACT;AAEA,UAAM,cAAc,IAAI,IAAI,KAAK,QAAQ,GAAG;AAC5C,UAAM,mBAAmB,MAAM,IAAI,OAAO;AAAA,MACxC,IAAI,QAAQ,aAAa,OAAO;AAAA,IAClC;AAEA,WAAO,IAAI,SAAS,iBAAiB,MAAM;AAAA,MACzC,QAAQ;AAAA,MACR,SAAS;AAAA,QACP,gBAAgB;AAAA,QAChB,iBAAiB;AAAA,MACnB;AAAA,IACF,CAAC;AAAA,EACH;AACF;",
+  "names": []
+}

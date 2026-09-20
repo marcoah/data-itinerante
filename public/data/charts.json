@@ -1,0 +1,11 @@
+{
+  "growth": {
+    "labels": ["Ago", "Sept", "Oct", "Nov", "Dic"],
+    "data": [180, 245, 342, 420, 550]
+  },
+  "topics": {
+    "labels": ["SQL & Postgres", "BI & Dashboards", "Analytics", "Data Engineering"],
+    "data": [342, 285, 156, 59],
+    "colors": ["#FFD700", "#FFE066", "#FFD700", "#E6C200"]
+  }
+}

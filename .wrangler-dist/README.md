@@ -1,0 +1,1 @@
+This folder contains the built output assets for the worker "data-itinerante" generated at 2026-09-20T15:46:24.921Z.

@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Itinerante — Community</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/tabler-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <div class="logo">
+          <img src="img/logo.jpg" alt="Data Itinerante Logo" />
+
+          DATA ITINERANTE
+        </div>
+        <div class="header-stats" id="headerStats"></div>
+        <div class="lang-selector">
+          <button class="lang-btn active" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="pt">PT</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="hero">
+      <div style="position: relative; z-index: 1">
+        <h1>Data Itinerante</h1>
+        <p>
+          Comunidad de Business Intelligence, Analytics y Visualización de Datos
+          recorriendo Argentina con eventos técnicos de alto valor
+        </p>
+        <div class="gradient-line"></div>
+        <div class="cta-group">
+          <button class="cta" onclick="scrollTo('events')">
+            <i class="ti ti-play"></i> Explorar Eventos
+          </button>
+          <button class="cta cta-secondary" onclick="scrollTo('contact')">
+            <i class="ti ti-mail"></i> Contacto
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <section class="section" id="cities">
+        <h2 class="section-title">
+          <i class="ti ti-map-pin"></i> Mapa de Ciudades
+        </h2>
+        <div class="city-grid" id="cityGrid"></div>
+      </section>
+
+      <section class="section" id="events">
+        <h2 class="section-title">
+          <i class="ti ti-calendar"></i> Próximos Eventos
+        </h2>
+        <div class="events-grid" id="eventsGrid"></div>
+      </section>
+
+      <!-- Analytics Section -->
+      <section
+        class="section"
+        id="analytics"
+        style="
+          background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+          padding: 4rem 0;
+          border-top: 3px solid #ffd700;
+          border-bottom: 3px solid #ffd700;
+          margin: 3rem 0;
+        "
+      >
+        <div class="container">
+          <h2 class="section-title" style="margin-bottom: 3rem">
+            <i class="ti ti-chart-bar"></i> Análisis de Comunidad
+          </h2>
+
+          <div class="charts-grid">
+            <!-- Chart 1: Distribución por Ciudad -->
+            <div class="chart-card">
+              <h3><i class="ti ti-map-pin"></i> Eventos por Ciudad</h3>
+              <canvas id="citiesChart"></canvas>
+            </div>
+
+            <!-- Chart 2: Crecimiento de Participantes -->
+            <div class="chart-card">
+              <h3><i class="ti ti-trending-up"></i> Crecimiento Mensual</h3>
+              <canvas id="growthChart"></canvas>
+            </div>
+
+            <!-- Chart 3: Distribución por Tema -->
+            <div class="chart-card">
+              <h3><i class="ti ti-layers"></i> Participantes por Tema</h3>
+              <canvas id="topicsChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Map Section -->
+      <section class="section" id="map-section" style="padding: 4rem 0">
+        <div class="container">
+          <h2 class="section-title" style="margin-bottom: 2rem">
+            <i class="ti ti-world"></i> Ubicaciones Activas
+          </h2>
+
+          <div class="map-card">
+            <div id="map"></div>
+            <div
+              id="locationStats"
+              style="
+                margin-top: 1.5rem;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1rem;
+              "
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="contact-section">
+          <h2>¿Quieres proponer un evento?</h2>
+          <p>
+            Ayúdanos a llevar Data Itinerante a más ciudades y temas. Comparte
+            tus ideas con nosotros.
+          </p>
+          <div class="cta-group">
+            <button class="cta">
+              <i class="ti ti-mail"></i> Enviar propuesta
+            </button>
+            <button class="cta cta-secondary">
+              <i class="ti ti-brand-linkedin"></i> Conectar
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <p>
+        <strong>Data Itinerante</strong> — Comunidad de Business Intelligence y
+        Analytics
+      </p>
+      <p style="font-size: 0.9rem; color: #666">
+        Recorriendo Argentina con eventos técnicos de alto valor | © 2026
+      </p>
+    </footer>
+
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <h2 id="modalTitle"></h2>
+        <div class="modal-stats">
+          <div class="modal-stat">
+            <span class="modal-stat-val" id="modalParticipants">142</span>
+            <span class="modal-stat-lbl">Participantes</span>
+          </div>
+          <div class="modal-stat">
+            <span class="modal-stat-val" id="modalDuration">4h</span>
+            <span class="modal-stat-lbl">Duración</span>
+          </div>
+          <div class="modal-stat">
+            <span class="modal-stat-val" id="modalLevel">Avanzado</span>
+            <span class="modal-stat-lbl">Nivel</span>
+          </div>
+        </div>
+        <p class="modal-description" id="modalDescription"></p>
+        <button class="cta">
+          <i class="ti ti-ticket"></i> Registrarse ahora
+        </button>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
